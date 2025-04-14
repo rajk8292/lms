@@ -1,0 +1,43 @@
+<html th:replace="~{admin/adminbase::layout(~{::section})}">
+	<head></head>
+	<body>
+		<section>
+			<h1  class="text-info text-center"> Manage Complaint</h1>
+			
+			<div class="row">
+							<div class="col-sm-12 mx-auto">
+								<table id="myTable" class="table table-bordered display">
+								    <thead class="text-center">
+								        <tr>
+								            <th class="text-center">Enrollment no.</th>
+								            <th class="text-center">Student Name</th>
+											<th class="text-center">contact no.</th>
+											<th class="text-center">Title</th>
+											<th class="text-center">Message</th>
+											<th class="text-center">Complaint Date</th>
+											<th class="text-center">Delete</th>
+								        </tr>
+								    </thead>
+									
+									<tr th:each="c:${clist}">
+									<td th:text="${c.enrollmentno}" style="text-align: center;"></td>
+									<td th:text="${c.name}" style="text-align: center;"></td>
+									<td th:text="${c.contactno}" style="text-align: center;"></td>
+									<td th:text="${c.responsetitle}" style="text-align: center;"></td>
+									<td th:text="${c.responsetext}" style="text-align: center;"></td>
+									<td th:text="${c.resdate}" style="text-align: center;"></td>
+									<td>
+								<a th:href="@{deletefeedback(id=${c.id})}" class="text-decoration-none">
+									<button class="btn btn-danger text-center" onclick="return confirm('are you sure want to delete?')">Delete</button>
+								</a>
+							</td>
+						</tr>
+																	      
+					</tr>
+									
+								</table>
+							</div>
+						</div>
+		</section>
+	</body>
+</html>

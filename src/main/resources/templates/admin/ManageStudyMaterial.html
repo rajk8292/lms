@@ -1,0 +1,51 @@
+<html th:replace="~{admin/adminbase::layout(~{::section})}">
+<head></head>
+<body>
+	<section>
+		<h1 class="text-center text-info">Manage Study Material</h1>
+
+		<div class="row">
+			<div class="col-sm-12 mx-auto">
+				<table id="myTable" class="table table-bordered display">
+					<thead class="text-center">
+						<tr>
+							<th class="text-center">Course</th>
+							<th class="text-center">Branch</th>
+							<th class="text-center">Year</th>
+							<th class="text-center">Subject</th>
+							<th class="text-center">Topic</th>
+							<th class="text-center">Material Type</th>
+							<th class="text-center">Material</th>
+							<th class="text-center">Posted Date</th>
+							<th class="text-center">Delete</th>
+						</tr>
+					</thead>
+					<tbody class="text-center">
+						<tr th:each="s:${stdm}">
+							<td th:text="${s.program}"></td>
+							<td th:text="${s.branch}"></td>
+							<td th:text="${s.year}"></td>
+							<td th:text="${s.subject}"></td>
+							<td th:text="${s.topic}"></td>
+							<td th:text="${s.materialtype}"></td>
+							<td>
+								<a th:href="@{'/mat/'+${s.filename}}">
+									<span th:text="${s.filename}"></span>
+								</a>
+							</td>
+							<td th:text="${s.posteddate}"></td>
+							
+								<td>
+									<a th:href="@{deletestudymaterial(program=${s.program})}">
+									<button class="btn btn-danger rounded-0" type="button" onclick="return confirm('Are you sure want to delete?');">Delete</button>
+									</td>
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

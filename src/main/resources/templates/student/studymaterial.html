@@ -1,0 +1,35 @@
+<html th:replace="~{student/studentbase::layout(~{::section})}">
+	
+<head></head>
+<body>
+	<section>
+		<h1 class="text-center text-info">Notes And Quantum</h1>
+			<div class="row">
+						<div class="col-sm-12 mx-auto">
+							<table id="myTable" class="table table-bordered display">
+							    <thead class="text-center">
+							        <tr>
+										<th class="text-center">Subject</th>
+										<th class="text-center">Type</th>
+										<th class="text-center">Material</th>
+										<th class="text-center">Posted Date</th>
+							        </tr>
+							    </thead>
+							    <tbody class="text-center">
+							        <tr th:each="s:${smlist}">
+										<td th:text="${s.subject}"></td>
+										<td th:text="${s.topic}"></td>
+										<td>
+											<a th:href="@{'/mat/'+${s.filename}}" target="_blank">    <!----download  Attribute to make option for download---->
+												<span th:text="${s.filename}"></span>
+											</a>
+										</td>
+										<td th:text="${s.posteddate}"></td>
+									</tr>
+							    </tbody>
+							</table>
+						</div>
+					</div>
+		</section>
+</body>
+</html>

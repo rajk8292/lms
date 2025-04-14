@@ -1,0 +1,48 @@
+<html th:replace="~{admin/adminbase::layout(~{::section})}">
+	<head>
+		
+	</head>
+	<body>
+		<section>
+			<h1 class="text-center text-info"> View Enquiry</h1>
+			
+			<div class="row">
+				<div class="col-sm-12 mx-auto">
+					<table id="myTable" class="table table-bordered display">
+					    <thead class="text-center">
+					        <tr>
+					            <th class="text-center">Student Id</th>
+					            <th class="text-center">Student name</th>
+								<th class="text-center">Contact No.</th>
+								<th class="text-center">Email-address</th>
+								<th class="text-center">Enquiry Text</th>
+								<th class="text-center">Post Date</th>
+								<th class="text-center">View Details</th>
+								<th class="text-center">Delete</th>
+					        </tr>
+					    </thead>
+					    <tbody class="text-center">
+					        <tr th:each="s:${enlist}">
+					            <td th:text="${s.id}" class="text-center"></td>
+					            <td th:text="${s.name}"></td>
+								<td th:text="${s.contactno}" class="text-center"></td>
+								<td th:text="${s.emailaddress}"></td>
+								<td th:text="${s.enquirytext}"></td>
+								<td th:text="${s.posteddate}"></td>
+								<!--<td>
+									<a href="#">View More...</a>
+								</td>
+								-->
+																	<a th:href="@{deleteenquiry(id=${s.id})}">
+																		<button class="btn btn-danger rounded-0" type="button" onclick="return confirm('Are you sure want to delete?');">Delete</button>
+																	</a>
+																</td>
+					        </tr>
+					       
+					    </tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
