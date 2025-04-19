@@ -33,8 +33,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Select Program</label>
+                            <label class="form-label">Select Course</label>
                             <select th:field="${dto.program}" class="form-select">
+                                <option value="#">--Select Course --</option>
                                 <option value="B.tech.">B.Tech.</option>
                                 <option value="M.Tech.">M.Tech.</option>
                                 <option value="B.B.A.">B.B.A.</option>
@@ -44,6 +45,7 @@
                         <div class="mb-3">
                             <label class="form-label">Select Branch</label>
                             <select th:field="${dto.branch}" class="form-select">
+                                 <option value="#">--Select branch--</option>
                                 <option value="Computer Science">Computer Science</option>
                                 <option value="Information Technology">Information Technology</option>
                                 <option value="CA">Computer Application</option>
@@ -54,6 +56,7 @@
                         <div class="mb-3">
                             <label class="form-label">Select Year</label>
                             <select th:field="${dto.year}" class="form-select">
+                                 <option value="#">--Select year--</option>
                                 <option value="First year">First Year</option>
                                 <option value="Second year">Second Year</option>
                                 <option value="Third year">Third Year</option>
